@@ -19,7 +19,3 @@ make
 ```
 
 This will compile the LaTeX file `cv.tex`, and the output will be saved as `cv_YYYY-MM-DD_HH-MM-SS.pdf` inside the `build` directory.
-
-```
-
-This markdown provides clear instructions to install LaTeX, create the necessary directory, add the `Makefile`, and run the `make` command to generate a PDF with a timestamped filename.
