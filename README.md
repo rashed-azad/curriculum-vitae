@@ -1,21 +1,42 @@
-# Installing LaTeX on Debian 11 and Building PDF
 
-## Installing LaTeX
+# LaTeX Installation Guide for MacBook
 
-To install LaTeX with the necessary packages on Debian 11, run the following command:
+This guide provides step-by-step instructions to install LaTeX on macOS using Homebrew, TinyTeX, and TeX Live packages.
 
-```bash
-sudo apt install texlive-latex-extra texlive-fonts-recommended texlive-latex-recommended texlive-fonts-extra texlive-bibtex-extra -y
-```
+---
 
-## Steps to Generate the PDF
+## 1. Install `wget` using Homebrew
 
-### Run the `Makefile`
-
-After creating the `Makefile`, use the following command to build the PDF with a dynamically generated filename:
+`wget` is a useful utility to download files from the internet.
 
 ```bash
-make
+brew install wget
+````
+
+---
+
+## 2. Install TinyTeX
+
+TinyTeX is a lightweight, portable, cross-platform LaTeX distribution.
+
+```bash
+curl -sL "https://yihui.org/tinytex/install-unx.sh" | sh
 ```
 
-This will compile the LaTeX file `cv.tex`, and the output will be saved as `cv_YYYY-MM-DD_HH-MM-SS.pdf` inside the `build` directory.
+---
+
+## 3. Install TeX Live Packages
+
+After installing TinyTeX, you can install additional LaTeX packages using `tlmgr`:
+
+```bash
+tlmgr install --reinstall --force \
+lbox xcolor pdfx fontspec titlesec enumitem hyperref fontawesome5 everyshi oberdiek \
+kvsetkeys kvrprofiles xmpincl accsupp cmap ragged2e pgf tcolorbox tikzfill iftex \
+pdfescape ltxcmds pdftexcmds refcount gettitlestring kvoptions stringenc intcalc \
+url bitset rerunfilecheck l3packages geon-fontsrecommended tools environ adjustbox \
+dashrule ifmtarg multirow changepage paracol lato fo biblatex-ieee epstopdf-pkg \
+trimspaces collectbox logreq
+```
+
+> This command ensures that all the commonly used LaTeX packages are installed and up to date.
